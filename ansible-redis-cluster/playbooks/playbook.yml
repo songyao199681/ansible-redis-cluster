@@ -1,5 +1,0 @@
-- hosts: redis_servers
-  become: yes
-  roles:
-   - ../roles/redis_cluster
-
