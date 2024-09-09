@@ -1,0 +1,84 @@
+---
+- name: Uninstall Redis
+  hosts: all
+  become: yes
+  vars_files:
+    - ../roles/redis_cluster/vars/main.yml
+  tasks:
+    - name: Confirm uninstallation
+      pause:
+        prompt: "Are you sure you want to uninstall Redis on all servers? (y/n)"
+      register: uninstall_confirmation
+      delegate_to: localhost
+
+    - name: Set uninstall confirmation as a fact on all hosts
+      set_fact:
+        uninstall_confirmed: "{{ uninstall_confirmation.user_input }}"
+      delegate_to: localhost
+      run_once: true
+
+    - name: Fail if uninstallation is not confirmed
+      fail:
+        msg: "Uninstallation aborted."
+      when: uninstall_confirmed not in ['y', 'Y', 'yes', 'Yes']
+
+    - name: Stop and disable Redis services
+      service:
+        name: "redis{{ item.port }}"
+        state: stopped
+        enabled: no
+      loop: "{{ redis_instances }}"
+      ignore_errors: yes
+
+    - name: Remove Redis systemd unit files
+      file:
+        path: "/lib/systemd/system/redis{{ item.port }}.service"
+        state: absent
+      loop: "{{ redis_instances }}"
+      ignore_errors: yes
+
+    - name: Remove Redis installation directories
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - "{{ redis_base_dir }}/redis"
+        - "{{ redis_base_dir }}/src/redis-{{ redis_version }}"
+        - "{{ redis_data_dir }}"
+      ignore_errors: yes
+
+    - name: Remove Redis user and group
+      user:
+        name: "{{ user }}"
+        state: absent
+      ignore_errors: yes
+
+    - name: Remove Redis group
+      group:
+        name: "{{ group }}"
+        state: absent
+      ignore_errors: yes
+
+    - name: Remove Redis environment PATH variable
+      file:
+        path: /etc/profile.d/redis.sh
+        state: absent
+      ignore_errors: yes
+
+    - name: Remove transparent_hugepage settings from /etc/rc.local
+      lineinfile:
+        path: /etc/rc.local
+        state: absent
+        line: "{{ item }}"
+      loop:
+        - 'echo never > /sys/kernel/mm/transparent_hugepage/enabled'
+        - 'echo never > /sys/kernel/mm/transparent_hugepage/defrag'
+      ignore_errors: yes
+
+    - name: Ensure rc.local is not executable
+      file:
+        path: /etc/rc.local
+        mode: '0644'
+        state: file
+      ignore_errors: yes
+
