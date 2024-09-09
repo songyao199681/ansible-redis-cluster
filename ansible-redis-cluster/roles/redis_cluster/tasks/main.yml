@@ -1,0 +1,202 @@
+- name: yum Install dependencies (first node only)
+  yum:
+    name: "{{ item }}"
+  loop:
+    - gcc
+    - make
+    - jemalloc-devel
+    - systemd-devel
+  when: inventory_hostname == "server1"
+
+- name: create group {{ group }}
+  group:
+    name: "{{ group }}"
+    gid: "{{ gid }}"
+
+- name: create user {{ user }}
+  user:
+    name: "{{ user }}"
+    uid: "{{ uid }}"
+    group: "{{ group }}"
+    system: yes
+    shell: /sbin/nologin
+    create_home: yes
+    home: "{{ redis_data_dir }}"
+
+- name: Create Redis data and log directories for each instance
+  file:
+    path: "{{ redis_data_dir }}/{{ item.0.port }}/{{ item.1 }}"
+    state: directory
+    group: "{{ group }}"
+    owner: "{{ user }}"
+    mode: '0755'
+  loop: "{{ redis_instances | product(['data', 'log']) | list }}"
+  loop_control:
+    loop_var: item
+
+- name: Download Redis source from URL
+  get_url:
+    url: "http://download.redis.io/releases/redis-{{ redis_version }}.tar.gz"
+    dest: "{{ redis_base_dir }}/src/redis-{{ redis_version }}.tar.gz"
+    mode: '0644'
+  register: download_redis
+  ignore_errors: yes
+  when: inventory_hostname == "server1"
+
+- name: Use local redis_file if download failed
+  unarchive:
+    src: "{{ (download_redis.failed | default(false)) | ternary(redis_file, redis_base_dir + '/src/redis-' + redis_version + '.tar.gz') }}"
+    dest: "{{ redis_base_dir }}/src"
+    remote_src: "{{ download_redis.failed | default(false) | ternary('no', 'yes') }}"
+    creates: "{{ redis_base_dir }}/src/redis-{{ redis_version }}"
+  when: inventory_hostname == "server1"
+
+
+- name: Compile  install redis-{{ redis_version }}  on first node
+  shell:
+    chdir: "{{ redis_base_dir }}/src/redis-{{ redis_version }}"
+    cmd: "make -j {{ (ansible_processor_vcpus / 2) | int }}  USE_SYSTEMD=yes PREFIX={{ redis_base_dir }}/redis install"
+    creates: "{{ redis_base_dir }}/redis"
+  when: inventory_hostname == "server1" 
+
+# 将Redis二进制文件拷贝到其他机器
+- name: Copy Redis installation to other nodes
+  synchronize:
+    src: "{{ redis_base_dir }}/redis/"
+    dest: "{{ redis_base_dir }}/redis/"
+    recursive: yes
+  delegate_to: server1
+  when: inventory_hostname != "server1"
+
+- name: Create an etc directory for storing redis.conf
+  file:
+    path: "{{ redis_base_dir }}/redis/etc/{{ item.port }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ redis_instances }}"
+
+- name: Copy the compiled redis.conf file to etc
+  template:
+    src: redis.conf.j2
+    dest: "{{ redis_base_dir }}/redis/etc/{{ item.port }}/redis.conf"
+  loop: "{{ redis_instances }}"
+  tags: redis_conf
+  notify:
+    - restart-redis
+
+- name: Ensure correct ownership and permissions for redis base and data directories
+  file:
+    path: "{{ item }}"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: '0755'
+    recurse: yes
+  loop:
+    - "{{ redis_base_dir }}/redis"
+    - "{{ redis_data_dir }}"
+
+
+- name: copy redis.service
+  template:
+    src: redis.service.j2
+    dest: /lib/systemd/system/redis{{ item.port }}.service
+  loop: "{{ redis_instances }}"
+  notify:
+    - daemon-reload
+
+- name: redis PATH variable
+  copy:
+    content: 'PATH={{ redis_base_dir }}/redis/bin:$PATH'
+    dest: /etc/profile.d/redis.sh
+
+- name: Chanage net.core.somaxconn
+  sysctl:
+    name: net.core.somaxconn
+    value: '1024'
+    sysctl_set: yes
+    state: present
+
+- name: vm.overcommit_memory
+  sysctl:
+    name: vm.overcommit_memory
+    value: '1'
+    sysctl_set: yes
+    state: present
+
+- name: Check transparent_hugepage enabled status
+  command: "cat /sys/kernel/mm/transparent_hugepage/enabled"
+  register: hugepage_enabled_status
+  become: yes
+
+- name: Check transparent_hugepage defrag status
+  command: "cat /sys/kernel/mm/transparent_hugepage/defrag"
+  register: hugepage_defrag_status
+  become: yes
+
+- name: Disable transparent_hugepage at runtime
+  shell: "echo never > /sys/kernel/mm/transparent_hugepage/enabled && echo never > /sys/kernel/mm/transparent_hugepage/defrag"
+  become: yes
+  when: "'[always]' in hugepage_enabled_status.stdout or '[always]' in hugepage_defrag_status.stdout"
+
+
+- name: Persist transparent_hugepage settings across reboots
+  lineinfile:
+    path: /etc/rc.local
+    state: present
+    line: "{{ item }}"
+    create: yes
+    mode: '0755'
+  loop:
+    - 'echo never > /sys/kernel/mm/transparent_hugepage/enabled'
+    - 'echo never > /sys/kernel/mm/transparent_hugepage/defrag'
+
+- name: Ensure rc.local is executable
+  file:
+    path: /etc/rc.d/rc.local
+    mode: '0755'
+    state: file
+
+- name: Ensure Redis service is enabled and started
+  service:
+    name: "redis{{ item.port }}"
+    state: started
+    enabled: yes
+  loop: "{{ redis_instances }}"
+
+- name: Display Redis cluster initialization command
+  debug:
+    msg: "{{ redis_base_dir }}/redis/bin/redis-cli --cluster create {{ redis_instances | map(attribute='host') | zip(redis_instances | map(attribute='port')) | map('join', ':') | join(' ') }} --cluster-replicas 1 -a {{ redis_password }} --cluster-yes"
+  run_once: true
+
+- name: Confirm Initialization
+  pause:
+    prompt: "Redis cluster configuration complete. Do you want to initialize the cluster now? (y/n)"
+  register: init_confirmation
+  run_once: true
+
+- name: Initialize Redis Cluster
+  command: "{{ redis_base_dir }}/redis/bin/redis-cli --cluster create {{ redis_instances | map(attribute='host') | zip(redis_instances | map(attribute='port')) | map('join', ':') | join(' ') }} --cluster-replicas 1 -a {{ redis_password }} --cluster-yes"
+  when: init_confirmation.user_input == 'y' or init_confirmation.user_input == 'yes'
+  run_once: true
+
+- name: Gather Redis Hosts
+  set_fact:
+    redis_hosts: "{{ redis_instances | map(attribute='host') | unique }}"
+
+- name: Check Redis cluster status
+  command: "{{ redis_base_dir }}/redis/bin/redis-cli --cluster check {{ redis_instances[0]['host'] }}:{{ redis_instances[0]['port'] }} -a {{ redis_password }}"
+  register: cluster_check_output
+  changed_when: false
+  run_once: true
+  ignore_errors: yes
+
+- name: Display Redis cluster status
+  debug:
+    var: cluster_check_output.stdout
+  run_once: true
+
+- name: Fail if Redis cluster is not healthy
+  fail:
+    msg: "Redis cluster is not healthy. Please check the cluster configuration."
+  when: "'[ERR] Not all 16384 slots are covered by nodes.' in cluster_check_output.stdout"
+  run_once: true
