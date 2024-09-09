@@ -54,3 +54,10 @@ fatal: [server2]: FAILED! => {"changed": false, "msg": "Uninstallation aborted."
 fatal: [server3]: FAILED! => {"changed": false, "msg": "Uninstallation aborted."}
 
 ```
+
+# 功能特性
+- 安装时初始化支持确认
+- 自动确定是否从本地、外网解包部署
+- 仅server1执行安装编译依赖、编译安装
+- 修改相关配置文件触发重启
+- 卸载前确认
