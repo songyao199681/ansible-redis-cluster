@@ -1,12 +1,12 @@
 bind 0.0.0.0
 requirepass {{ redis_password }}
 masterauth {{ redis_password }}
-port {{ item.port }}
-dir {{ redis_data_dir }}/{{ item.port }}/data
-logfile {{ redis_data_dir }}/{{ item.port }}/log/redis.log
-pidfile {{ redis_base_dir }}/redis/etc/{{ item.port }}/redis.pid
+port {{ (redis_base_port + item - 1) }} 
+dir {{ redis_data_dir }}redis-{{ item }}
+logfile {{ redis_log_dir }}redis-{{ item }}/redis.log
+pidfile {{ redis_base_dir }}etc/redis-{{ item }}/redis.pid
 cluster-enabled yes
-cluster-config-file nodes-{{ item.port }}.conf
+cluster-config-file {{ redis_base_dir }}etc/redis-{{ item }}/nodes.conf
 cluster-node-timeout 5000
 appendonly no
 protected-mode yes

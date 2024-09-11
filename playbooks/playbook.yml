@@ -1,4 +1,4 @@
-- hosts: redis_servers
+- hosts: redis_hosts
   become: yes
   roles:
    - ../roles/redis_cluster

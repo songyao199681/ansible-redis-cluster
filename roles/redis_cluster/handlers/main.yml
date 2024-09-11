@@ -1,8 +1,8 @@
 - name: restart-redis
   systemd:
-    name: redis{{ item.port }}
+    name: redis-server-{{ item }}
     state: restarted
-  loop: "{{ redis_instances }}"
+  loop: "{{ range(1, redis_instances_per_host + 1) | list }}"
   listen: restart-redis
 
 - name: daemon-reload

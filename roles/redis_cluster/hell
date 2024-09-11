@@ -1,0 +1,509 @@
+fortios_router_community_list                                 Configure community lists in Fortinet's FortiOS and FortiGate                     
+azure_rm_devtestlab_info                                      Get Azure DevTest Lab facts                                                       
+ecs_taskdefinition                                            register a task definition in ecs                                                 
+avi_alertscriptconfig                                         Module for setup of AlertScriptConfig Avi RESTful Object                          
+tower_receive                                                 Receive assets from Ansible Tower                                                 
+netapp_e_iscsi_target                                         NetApp E-Series manage iSCSI target configuration                                 
+azure_rm_acs                                                  Manage an Azure Container Service(ACS) instance                                   
+fortios_log_syslogd2_filter                                   Filters for remote system server in Fortinet's FortiOS and FortiGate              
+junos_rpc                                                     Runs an arbitrary RPC over NetConf on an Juniper JUNOS device                     
+na_elementsw_vlan                                             NetApp Element Software Manage VLAN                                               
+pn_ospf                                                       CLI command to add/remove ospf protocol to a vRouter                              
+pn_snmp_vacm                                                  CLI command to create/modify/delete snmp-vacm                                     
+cp_mgmt_service_sctp                                          Manages service-sctp objects on Check Point over Web Services API                 
+onyx_ospf                                                     Manage OSPF protocol on Mellanox ONYX network devices                             
+icx_command                                                   Run arbitrary commands on remote Ruckus ICX 7000 series switches                  
+cs_snapshot_policy                                            Manages volume snapshot policies on Apache CloudStack based clouds                
+nxos_install_os                                               Set boot options like boot, kickstart image and issu                              
+cnos_static_route                                             Manage static IP routes on Lenovo CNOS network devices                            
+win_eventlog                                                  Manage Windows event logs                                                         
+vmware_category                                               Manage VMware categories                                                          
+vmware_host_feature_info                                      Gathers info about an ESXi host's feature capability information                  
+avi_cluster                                                   Module for setup of Cluster Avi RESTful Object                                    
+na_ontap_user                                                 NetApp ONTAP user configuration and management                                    
+aci_l3out                                                     Manage Layer 3 Outside (L3Out) objects (l3ext:Out)                                
+memset_server_info                                            Retrieve server information                                                       
+gcp_compute_subnetwork_info                                   Gather info for GCP Subnetwork                                                    
+azure_rm_virtualmachinescalesetextension                      Manage Azure Virtual Machine Scale Set (VMSS) extensions                          
+fortios_report_dataset                                        Report dataset configuration in Fortinet's FortiOS and FortiGate                  
+avi_api_session                                               Avi API Module                                                                    
+avi_networkprofile                                            Module for setup of NetworkProfile Avi RESTful Object                             
+avi_backup                                                    Module for setup of Backup Avi RESTful Object                                     
+aci_interface_policy_cdp                                      Manage CDP interface policies (cdp:IfPol)                                         
+fortios_firewall_vip                                          Configure virtual IP for IPv4 in Fortinet's FortiOS and FortiGate                 
+gcp_compute_backend_service                                   Creates a GCP BackendService                                                      
+iam_policy                                                    Manage IAM policies for users, groups, and roles                                  
+fortios_system_fips_cc                                        Configure FIPS-CC mode in Fortinet's FortiOS and FortiGate                        
+fortios_log_null_device_setting                               Settings for null device logging in Fortinet's FortiOS and FortiGate              
+win_inet_proxy                                                Manages proxy settings for WinINet and Internet Explorer                          
+fortios_firewall_auth_portal                                  Configure firewall authentication portals in Fortinet's FortiOS and FortiGate     
+jenkins_plugin                                                Add or remove Jenkins plugin                                                      
+iosxr_interfaces                                              Manage interface attributes on Cisco IOS-XR network devices                       
+supervisorctl                                                 Manage the state of a program or group of programs running via supervisord        
+tower_notification                                            create, update, or destroy Ansible Tower notification                             
+rax_cbs_attachments                                           Manipulate Rackspace Cloud Block Storage Volume Attachments                       
+oneview_san_manager_info                                      Retrieve information about one or more of the OneView SAN Managers                
+elb_classic_lb_info                                           Gather information about EC2 Elastic Load Balancers in AWS                        
+idrac_server_config_profile                                   Export or Import iDRAC Server Configuration Profile (SCP)                         
+influxdb_write                                                Write data points into InfluxDB                                                   
+fortios_application_list                                      Configure application control lists in Fortinet's FortiOS and FortiGate           
+fortios_web_proxy_debug_url                                   Configure debug URL addresses in Fortinet's FortiOS and FortiGate                 
+parted                                                        Configure block device partitions                                                 
+fortios_firewall_ipmacbinding_setting                         Configure IP to MAC binding settings in Fortinet's FortiOS and FortiGate          
+ec2_vpc_vgw                                                   Create and delete AWS VPN Virtual Gateways                                        
+vmware_maintenancemode                                        Place a host into maintenance mode                                                
+na_ontap_vserver_peer                                         NetApp ONTAP Vserver peering                                                      
+icx_linkagg                                                   Manage link aggregation groups on Ruckus ICX 7000 series switches                 
+fortios_firewall_ssh_setting                                  SSH proxy settings in Fortinet's FortiOS and FortiGate                            
+mail                                                          Send an email                                                                     
+postgresql_publication                                        Add, update, or remove PostgreSQL publication                                     
+ec2_lc_find                                                   Find AWS Autoscaling Launch Configurations                                        
+aci_maintenance_group_node                                    Manage maintenance group nodes                                                    
+cs_role_permission                                            Manages role permissions on Apache CloudStack based clouds                        
+bigip_profile_fastl4                                          Manages Fast L4 profiles                                                          
+sf_snapshot_schedule_manager                                  Manage SolidFire snapshot schedules                                               
+fortios_system_replacemsg_image                               Configure replacement message images in Fortinet's FortiOS and FortiGate          
+ucs_ntp_server                                                Configures NTP server on Cisco UCS Manager                                        
+pids                                                          Retrieves process IDs list if the process is running otherwise return empty list  
+ec2_vpc_endpoint_info                                         Retrieves AWS VPC endpoints details using AWS methods                             
+fortios_system_vdom_radius_server                             Configure a RADIUS server to use as a RADIUS Single Sign On (RSSO) server for this...
+digital_ocean_block_storage                                   Create/destroy or attach/detach Block Storage volumes in DigitalOcean             
+azure_rm_sqlserver_info                                       Get SQL Server facts                                                              
+netscaler_cs_action                                           Manage content switching actions                                                  
+s3_bucket_notification                                        Creates, updates or deletes S3 Bucket notification for lambda                     
+azure_rm_dnszone_info                                         Get DNS zone facts                                                                
+nxos_bfd_interfaces                                           Manages BFD attributes of nxos interfaces.                                        
+azure_rm_servicebussaspolicy                                  Manage Azure Service Bus SAS policy                                               
+ce_acl_advance                                                Manages advanced ACL configuration on HUAWEI CloudEngine switches                 
+ovirt_storage_domain                                          Module to manage storage domains in oVirt/RHV                                     
+na_ontap_igroup_initiator                                     NetApp ONTAP igroup initiator configuration                                       
+mso_site                                                      Manage sites                                                                      
+bigip_apm_policy_import                                       Manage BIG-IP APM policy or APM access profile imports                            
+gce_instance_template                                         create or destroy instance templates of Compute Engine of GCP                     
+fmgr_secprof_web                                              Manage web filter security profiles in FortiManager                               
+gcp_compute_instance                                          Creates a GCP Instance                                                            
+keycloak_group                                                Allows administration of Keycloak groups via Keycloak API                         
+junos_lacp_interfaces                                         Manage Link Aggregation Control Protocol (LACP) attributes of interfaces on Junipe...
+aix_inittab                                                   Manages the inittab on AIX                                                        
+aireos_config                                                 Manage Cisco WLC configurations                                                   
+cp_mgmt_discard                                               All changes done by user are discarded and removed from database                  
+hwc_network_vpc                                               Creates a Huawei Cloud VPC                                                        
+gcp_compute_target_http_proxy                                 Creates a GCP TargetHttpProxy                                                     
+fortios_system_api_user                                       Configure API users in Fortinet's FortiOS and FortiGate                           
+bigip_firewall_port_list                                      Manage port lists on BIG-IP AFM                                                   
+ipa_role                                                      Manage FreeIPA role                                                               
+gcp_spanner_database_info                                     Gather info for GCP Database                                                      
+ovirt_vm_info                                                 Retrieve information about one or more oVirt/RHV virtual machines                 
+azure_rm_postgresqlfirewallrule                               Manage PostgreSQL firewall rule instance                                          
+bigip_service_policy                                          Manages service policies on a BIG-IP                                              
+azure_rm_iothubconsumergroup                                  Manage Azure IoT hub                                                              
+onyx_mlag_ipl                                                 Manage IPL (inter-peer link) on Mellanox ONYX network devices                     
+nxos_logging                                                  Manage logging on network devices                                                 
+bigip_gtm_datacenter                                          Manage Datacenter configuration in BIG-IP                                         
+fortios_webfilter_ftgd_local_cat                              Configure FortiGuard Web Filter local categories in Fortinet's FortiOS and FortiGa...
+replace                                                       Replace all instances of a particular string in a file using a back-referenced reg...
+terraform                                                     Manages a Terraform deployment (and plans)                                        
+bigip_ucs                                                     Manage upload, installation and removal of UCS files                              
+purefa_vg                                                     Manage volume groups on Pure Storage FlashArrays                                  
+cpm_plugconfig                                                Get and Set Plug Parameters on WTI OOB and PDU power devices                      
+hipchat                                                       Send a message to Hipchat                                                         
+hcloud_server_type_info                                       Gather infos about the Hetzner Cloud server types                                 
+dnf                                                           Manages packages with the `dnf' package manager                                   
+ucs_ip_pool                                                   Configures IP address pools on Cisco UCS Manager                                  
+win_nssm                                                      Install a service using NSSM                                                      
+avi_cloudconnectoruser                                        Module for setup of CloudConnectorUser Avi RESTful Object                         
+fortios_switch_controller_stp_settings                        Configure FortiSwitch spanning tree protocol (STP) in Fortinet's FortiOS and Forti...
+bundler                                                       Manage Ruby Gem dependencies with Bundler                                         
+cp_mgmt_exception_group                                       Manages exception-group objects on Check Point over Web Services API              
+cobbler_sync                                                  Sync Cobbler                                                                      
+intersight_rest_api                                           REST API configuration for Cisco Intersight                                       
+urpmi                                                         Urpmi manager                                                                     
+bigip_profile_analytics                                       Manage HTTP analytics profiles on a BIG-IP                                        
+bitbucket_pipeline_variable                                   Manages Bitbucket pipeline variables                                              
+docker_stack                                                  docker stack module                                                               
+gcp_iam_role_info                                             Gather info for GCP Role                                                          
+fortios_vpn_ssl_web_host_check_software                       SSL-VPN host check software in Fortinet's FortiOS and FortiGate                   
+na_ontap_volume                                               NetApp ONTAP manage volumes                                                       
+vmware_host_vmhba_info                                        Gathers info about vmhbas available on the given ESXi host                        
+cs_router                                                     Manages routers on Apache CloudStack based clouds                                 
+onyx_magp                                                     Manage MAGP protocol on Mellanox ONYX network devices                             
+vmware_cluster                                                Manage VMware vSphere clusters                                                    
+fortios_ips_rule                                              Configure IPS rules in Fortinet's FortiOS and FortiGate                           
+cloudwatchlogs_log_group_info                                 get information about log_group in CloudWatchLogs                                 
+nxos_lldp                                                     Manage LLDP configuration on Cisco NXOS network devices                           
+hcloud_floating_ip_info                                       Gather infos about the Hetzner Cloud Floating IPs                                 
+aci_filter_entry                                              Manage filter entries (vz:Entry)                                                  
+win_wait_for_process                                          Waits for a process to exist or not exist before continuing                       
+cp_mgmt_service_other                                         Manages service-other objects on Check Point over Web Services API                
+azure_rm_trafficmanagerendpoint_info                          Get Azure Traffic Manager endpoint facts                                          
+tower_job_launch                                              Launch an Ansible Job                                                             
+ce_static_route                                               Manages static route configuration on HUAWEI CloudEngine switches                 
+mso_schema_site_vrf                                           Manage site-local VRFs in schema template                                         
+setup                                                         Gathers facts about remote hosts                                                  
+rds_instance_info                                             obtain information about one or more RDS instances                                
+fortios_authentication_setting                                Configure authentication setting in Fortinet's FortiOS and FortiGate              
+bigmon_chain                                                  Create and remove a bigmon inline service chain                                   
+nxos_lldp_global                                              Configure and manage Link Layer Discovery Protocol(LLDP) attributes on NX-OS platf...
+aws_ssm_parameter_store                                       Manage key-value pairs in aws parameter store                                     
+cp_mgmt_access_rule                                           Manages access-rule objects on Check Point over Web Services API                  
+iam_server_certificate_info                                   Retrieve the information of a server certificate                                  
+icx_l3_interface                                              Manage Layer-3 interfaces on Ruckus ICX 7000 series switches                      
+azure_rm_iotdevice_info                                       Facts of Azure IoT hub device                                                     
+lineinfile                                                    Manage lines in text files                                                        
+asa_acl                                                       Manage access-lists on a Cisco ASA                                                
+aws_application_scaling_policy                                Manage Application Auto Scaling Scaling Policies                                  
+na_ontap_vscan_on_demand_task                                 NetApp ONTAP Vscan on demand task configuration                                   
+ec2_placement_group                                           Create or delete an EC2 Placement Group                                           
+nios_nsgroup                                                  Configure InfoBlox DNS Nameserver Groups                                          
+bigip_firewall_log_profile                                    Manages AFM logging profiles configured in the system                             
+mso_schema_site_anp_epg_staticleaf                            Manage site-local EPG static leafs in schema template                             
+gcp_compute_image_info                                        Gather info for GCP Image                                                         
+cp_mgmt_service_rpc_facts                                     Get service-rpc objects facts on Check Point over Web Services API                
+restconf_config                                               Handles create, update, read and delete of configuration data on RESTCONF enabled ...
+netscaler_lb_vserver                                          Manage load balancing vserver configuration                                       
+na_elementsw_volume_clone                                     NetApp Element Software Create Volume Clone                                       
+scaleway_server_info                                          Gather information about the Scaleway servers available                           
+gcp_compute_snapshot_info                                     Gather info for GCP Snapshot                                                      
+vultr_firewall_rule                                           Manages firewall rules on Vultr                                                   
+ce_evpn_global                                                Manages global configuration of EVPN on HUAWEI CloudEngine switches               
+vmware_host_capability_facts                                  Gathers facts about an ESXi host's capability information                         
+fortios_system_fortiguard                                     Configure FortiGuard services in Fortinet's FortiOS and FortiGate                 
+cs_securitygroup                                              Manages security groups on Apache CloudStack based clouds                         
+cp_mgmt_group                                                 Manages group objects on Check Point over Web Services API                        
+proxysql_query_rules                                          Modifies query rules using the proxysql admin interface                           
+onyx_command                                                  Run commands on remote devices running Mellanox ONYX                              
+na_ontap_lun_map                                              NetApp ONTAP LUN maps                                                             
+azure_rm_virtualmachineimage_info                             Get virtual machine image facts                                                   
+iam_role                                                      Manage AWS IAM roles                                                              
+redshift_info                                                 Gather information about Redshift cluster(s)                                      
+bigip_profile_persistence_src_addr                            Manage source address persistence profiles                                        
+win_psmodule                                                  Adds or removes a Windows PowerShell module                                       
+win_chocolatey_feature                                        Manages Chocolatey features                                                       
+purefa_host                                                   Manage hosts on Pure Storage FlashArrays                                          
+fortios_switch_controller_lldp_profile                        Configure FortiSwitch LLDP profiles in Fortinet's FortiOS and FortiGate           
+iosxr_l2_interfaces                                           Manage Layer-2 interface on Cisco IOS-XR devices                                  
+fortios_wanopt_settings                                       Configure WAN optimization settings in Fortinet's FortiOS and FortiGate           
+win_ping                                                      A windows version of the classic ping module                                      
+ovirt_storage_vm_info                                         Retrieve information about one or more oVirt/RHV virtual machines relate to a stor...
+icx_config                                                    Manage configuration sections of Ruckus ICX 7000 series switches                  
+rabbitmq_publish                                              Publish a message to a RabbitMQ queue                                             
+vmware_datastore_maintenancemode                              Place a datastore into maintenance mode                                           
+docker_config                                                 Manage docker configs                                                             
+tower_project                                                 create, update, or destroy Ansible Tower projects                                 
+elb_classic_lb                                                Creates or destroys Amazon ELB                                                    
+syslogger                                                     Log messages in the syslog                                                        
+fortios_authentication_scheme                                 Configure Authentication Schemes in Fortinet's FortiOS and FortiGate              
+os_keystone_service                                           Manage OpenStack Identity services                                                
+vca_nat                                                       add remove nat rules in a gateway  in a vca                                       
+scaleway_snapshot_info                                        Gather information about the Scaleway snapshots available                         
+iosxr_lldp_interfaces                                         Manage Link Layer Discovery Protocol (LLDP) attributes of interfaces on IOS-XR dev...
+fortios_router_multicast_flow                                 Configure multicast-flow in Fortinet's FortiOS and FortiGate                      
+vmware_vm_info                                                Return basic info pertaining to a VMware machine guest                            
+fortios_firewall_internet_service                             Show Internet Service application in Fortinet's FortiOS and FortiGate             
+cp_mgmt_session_facts                                         Get session objects facts on Check Point over Web Services API                    
+nxos_acl                                                      Manages access list entries for ACLs                                              
+edgeos_config                                                 Manage EdgeOS configuration on remote device                                      
+rhsm_release                                                  Set or Unset RHSM Release version                                                 
+avi_ipaddrgroup                                               Module for setup of IpAddrGroup Avi RESTful Object                                
+bigip_remote_user                                             Manages default settings for remote user accounts on a BIG-IP                     
+exo_dns_domain                                                Manages domain records on Exoscale DNS API                                        
+dnsimple                                                      Interface with dnsimple.com (a DNS hosting service)                               
+fortios_user_local                                            Configure local users in Fortinet's FortiOS and FortiGate                         
+bigip_device_ha_group                                         Manage HA group settings on a BIG-IP system                                       
+net_put                                                       Copy a file from Ansible Controller to a network device                           
+gluster_volume                                                Manage GlusterFS volumes                                                          
+sensu_handler                                                 Manages Sensu handler configuration                                               
+na_ontap_qtree                                                NetApp ONTAP manage qtrees                                                        
+ovirt_quota                                                   Module to manage datacenter quotas in oVirt/RHV                                   
+cnos_interface                                                Manage Interface on Lenovo CNOS network devices                                   
+a10_server                                                    Manage A10 Networks AX/SoftAX/Thunder/vThunder devices' server object             
+fmgr_fwobj_service                                            Manages FortiManager Firewall Service Objects                                     
+keycloak_client                                               Allows administration of Keycloak clients via Keycloak API                        
+win_security_policy                                           Change local security policy settings                                             
+cloudfront_origin_access_identity                             create, update and delete origin access identities for a cloudfront distribution  
+win_iis_webbinding                                            Configures a IIS Web site binding                                                 
+rhn_channel                                                   Adds or removes Red Hat software channels                                         
+netscaler_service                                             Manage service configuration in Netscaler                                         
+ec2_eip                                                       manages EC2 elastic IP (EIP) addresses                                            
+na_elementsw_volume_pair                                      NetApp Element Software Volume Pair                                               
+cloudfront_invalidation                                       create invalidations for aws cloudfront distributions                             
+digital_ocean_certificate                                     Manage certificates in DigitalOcean                                               
+fortios_application_group                                     Configure firewall application groups in Fortinet's FortiOS and FortiGate         
+aws_elasticbeanstalk_app                                      create, update, and delete an elastic beanstalk application                       
+fortios_firewall_vip64                                        Configure IPv6 to IPv4 virtual IPs in Fortinet's FortiOS and FortiGate            
+sts_assume_role                                               Assume a role using AWS Security Token Service and obtain temporary credentials   
+mso_schema_template_filter_entry                              Manage filter entries in schema templates                                         
+rax_cdb_user                                                  create / delete a Rackspace Cloud Database                                        
+proxmox                                                       management of instances in Proxmox VE cluster                                     
+bigip_firewall_policy                                         Manage AFM security firewall policies on a BIG-IP                                 
+openssh_cert                                                  Generate OpenSSH host or user certificates                                        
+cp_mgmt_multicast_address_range                               Manages multicast-address-range objects on Check Point over Web Services API      
+vmware_migrate_vmk                                            Migrate a VMK interface from VSS to VDS                                           
+win_scheduled_task                                            Manage scheduled tasks                                                            
+ios_ntp                                                       Manages core NTP configuration                                                    
+azure_rm_mariadbfirewallrule                                  Manage MariaDB firewall rule instance                                             
+portinstall                                                   Installing packages from FreeBSD's ports system                                   
+vmware_host_feature_facts                                     Gathers facts about an ESXi host's feature capability information                 
+na_ontap_firewall_policy                                      NetApp ONTAP Manage a firewall policy                                             
+ce_bgp_af                                                     Manages BGP Address-family configuration on HUAWEI CloudEngine switches           
+cloudwatchlogs_log_group                                      create or delete log_group in CloudWatchLogs                                      
+gcp_pubsub_subscription                                       Creates a GCP Subscription                                                        
+data_pipeline                                                 Create and manage AWS Datapipelines                                               
+fortios_firewall_wildcard_fqdn_group                          Config global Wildcard FQDN address groups in Fortinet's FortiOS and FortiGate    
+bigip_wait                                                    Wait for a BIG-IP condition before continuing                                     
+fortios_user_device                                           Configure devices in Fortinet's FortiOS and FortiGate                             
+opkg                                                          Package manager for OpenWrt                                                       
+debug                                                         Print statements during execution                                                 
+gcp_compute_target_pool                                       Creates a GCP TargetPool                                                          
+azure_rm_containerregistry                                    Manage an Azure Container Registry                                                
+nxos_lacp                                                     Manage Global Link Aggregation Control Protocol (LACP) on Cisco NX-OS devices     
+vexata_volume                                                 Manage volumes on Vexata VX100 storage arrays                                     
+cloudscale_server                                             Manages servers on the cloudscale.ch IaaS service                                 
+na_elementsw_cluster_snmp                                     Configure Element SW Cluster SNMP                                                 
+proxysql_scheduler                                            Adds or removes schedules from proxysql admin interface                           
+homebrew_cask                                                 Install/uninstall homebrew casks                                                  
+vmware_guest_powerstate                                       Manages power states of virtual machines in vCenter                               
+gcp_compute_backend_bucket_info                               Gather info for GCP BackendBucket                                                 
+import_playbook                                               Import a playbook                                                                 
+cs_instancegroup                                              Manages instance groups on Apache CloudStack based clouds                         
+ovirt_storage_template_info                                   Retrieve information about one or more oVirt/RHV templates relate to a storage dom...
+pn_vrouterbgp                                                 CLI command to add/remove/modify vrouter-bgp                                      
+iosxr_interface                                               Manage Interface on Cisco IOS XR network devices                                  
+panos_object                                                  create/read/update/delete object in PAN-OS or Panorama                            
+cnos_backup                                                   Backup the current running or startup configuration to a remote server on devices ...
+nios_a_record                                                 Configure Infoblox NIOS A records                                                 
+os_subnet                                                     Add/Remove subnet to an OpenStack network                                         
+fortios_webfilter_override                                    Configure FortiGuard Web Filter administrative overrides in Fortinet's FortiOS and...
+eos_user                                                      Manage the collection of local users on EOS devices                               
+acme_certificate_revoke                                       Revoke certificates with the ACME protocol                                        
+pn_snmp_trap_sink                                             CLI command to create/delete snmp-trap-sink                                       
+fortios_system_automation_destination                         Automation destinations in Fortinet's FortiOS and FortiGate                       
+packet_sshkey                                                 Create/delete an SSH key in Packet host                                           
+nmcli                                                         Manage Networking                                                                 
+cp_mgmt_service_other_facts                                   Get service-other objects facts on Check Point over Web Services API              
+azure_rm_roleassignment_info                                  Gets Azure Role Assignment facts                                                  
+routeros_command                                              Run commands on remote devices running MikroTik RouterOS                          
+cp_mgmt_package                                               Manages package objects on Check Point over Web Services API                      
+fortios_router_auth_path                                      Configure authentication based routing in Fortinet's FortiOS and FortiGate        
+gcp_appengine_firewall_rule                                   Creates a GCP FirewallRule                                                        
+gunicorn                                                      Run gunicorn with various settings                                                
+cp_mgmt_vpn_community_star                                    Manages vpn-community-star objects on Check Point over Web Services API           
+checkpoint_access_rule                                        Manages access rules on Check Point over Web Services API                         
+aci_aaa_user_certificate                                      Manage AAA user certificates (aaa:UserCert)                                       
+aci_switch_policy_leaf_profile                                Manage switch policy leaf profiles (infra:NodeP)                                  
+net_system                                                    Manage the system attributes on network devices                                   
+ce_interface_ospf                                             Manages configuration of an OSPF interface instanceon HUAWEI CloudEngine switches 
+azure_rm_virtualnetwork_info                                  Get virtual network facts                                                         
+digital_ocean_floating_ip_info                                DigitalOcean Floating IPs information                                             
+vmware_tag_info                                               Manage VMware tag info                                                            
+cloudwatchevent_rule                                          Manage CloudWatch Event rules and targets                                         
+gc_storage                                                    This module manages objects/buckets in Google Cloud Storage                       
+fortios_system_replacemsg_group                               Configure replacement message groups in Fortinet's FortiOS and FortiGate          
+onyx_pfc_interface                                            Manage priority flow control on ONYX network devices                              
+aci_interface_policy_lldp                                     Manage LLDP interface policies (lldp:IfPol)                                       
+ibm_sa_host_ports                                             Add host ports on IBM Spectrum Accelerate Family storage systems                  
+installp                                                      Manage packages on AIX                                                            
+rabbitmq_policy                                               Manage the state of policies in RabbitMQ                                          
+na_ontap_net_vlan                                             NetApp ONTAP network VLAN                                                         
+k8s_scale                                                     Set a new size for a Deployment, ReplicaSet, Replication Controller, or Job       
+rax_mon_notification_plan                                     Create or delete a Rackspace Cloud Monitoring notification plan                   
+bigip_provision                                               Manage BIG-IP module provisioning                                                 
+elasticache                                                   Manage cache clusters in Amazon Elasticache                                       
+openssl_privatekey                                            Generate OpenSSL private keys                                                     
+cp_mgmt_security_zone                                         Manages security-zone objects on Check Point over Web Services API                
+bigip_software_install                                        Install software images on a BIG-IP                                               
+fortios_system_settings                                       Configure VDOM settings in Fortinet's FortiOS and FortiGate                       
+fortios_router_route_map                                      Configure route maps in Fortinet's FortiOS and FortiGate                          
+fortios_vpn_ssl_web_user_group_bookmark                       Configure SSL VPN user group bookmark in Fortinet's FortiOS and FortiGate         
+apt_repository                                                Add and remove APT repositories                                                   
+gcp_compute_vpn_tunnel                                        Creates a GCP VpnTunnel                                                           
+vmware_vm_host_drs_rule                                       Creates vm/host group in a given cluster                                          
+gcp_storage_bucket_access_control                             Creates a GCP BucketAccessControl                                                 
+ecs_attribute                                                 manage ecs attributes                                                             
+gcp_compute_instance_group                                    Creates a GCP InstanceGroup                                                       
+ipa_host                                                      Manage FreeIPA host                                                               
+na_ontap_ipspace                                              NetApp ONTAP Manage an ipspace                                                    
+oneview_logical_interconnect_group                            Manage OneView Logical Interconnect Group resources                               
+sros_config                                                   Manage Nokia SR OS device configuration                                           
+gcp_container_cluster_info                                    Gather info for GCP Cluster                                                       
+vsphere_copy                                                  Copy a file to a VMware datastore                                                 
+avi_prioritylabels                                            Module for setup of PriorityLabels Avi RESTful Object                             
+azure_rm_autoscale                                            Manage Azure autoscale setting                                                    
+na_ontap_snapshot_policy                                      NetApp ONTAP manage Snapshot Policy                                               
+onyx_traffic_class                                            Configures Traffic Class                                                          
+pn_dscp_map_pri_map                                           CLI command to modify dscp-map-pri-map                                            
+tower_workflow_template                                       create, update, or destroy Ansible Tower workflow template                        
+azure_rm_roleassignment                                       Manage Azure Role Assignment                                                      
+fortios_switch_controller_virtual_port_pool                   Configure virtual pool in Fortinet's FortiOS and FortiGate                        
+fortios_system_replacemsg_webproxy                            Replacement messages in Fortinet's FortiOS and FortiGate                          
+ovirt_affinity_label_info                                     Retrieve information about one or more oVirt/RHV affinity labels                  
+purefa_offload                                                Create, modify and delete NFS or S3 offload targets                               
+vmware_dvswitch_uplink_pg                                     Manage uplink portproup configuration of a Distributed Switch                     
+fortios_firewall_identity_based_route                         Configure identity based routing in Fortinet's FortiOS and FortiGate              
+nios_srv_record                                               Configure Infoblox NIOS SRV records                                               
+ce_aaa_server_host                                            Manages AAA server host configuration on HUAWEI CloudEngine switches              
+docker_swarm_info                                             Retrieves facts about Docker Swarm cluster                                        
+add_host                                                      Add a host (and alternatively a group) to the ansible-playbook in-memory inventory
+cs_resourcelimit                                              Manages resource limits on Apache CloudStack based clouds                         
+nxos_vpc                                                      Manages global VPC configuration                                                  
+webfaction_site                                               Add or remove a website on a Webfaction host                                      
+bigip_remote_role                                             Manage remote roles on a BIG-IP                                                   
+fortios_wireless_controller_ap_status                         Configure access point status (rogue | accepted | suppressed) in Fortinet's FortiO...
+win_domain_group                                              Creates, modifies or removes domain groups                                        
+bigip_asm_policy_server_technology                            Manages Server Technology on ASM policy                                           
+meraki_organization                                           Manage organizations in the Meraki cloud                                          
+bigip_profile_http                                            Manage HTTP profiles on a BIG-IP                                                  
+vmware_vm_vss_dvs_migrate                                     Migrates a virtual machine from a standard vswitch to distributed                 
+fortios_webfilter_ftgd_local_rating                           Configure local FortiGuard Web Filter local ratings in Fortinet's FortiOS and Fort...
+aci_vlan_pool                                                 Manage VLAN pools (fvns:VlanInstP)                                                
+bigip_gtm_monitor_http                                        Manages F5 BIG-IP GTM http monitors                                               
+os_coe_cluster                                                Add/Remove COE cluster from OpenStack Cloud                                       
+cnos_save                                                     Save the running configuration as the startup configuration on devices running Len...
+fortios_facts                                                 Get facts about fortios devices                                                   
+panos_admin                                                   Add or modify PAN-OS user accounts password                                       
+ucs_vnic_template                                             Configures vNIC templates on Cisco UCS Manager                                    
+bigip_remote_syslog                                           Manipulate remote syslog settings on a BIG-IP                                     
+azure_rm_postgresqlserver_info                                Get Azure PostgreSQL Server facts                                                 
+gcp_compute_interconnect_attachment_info                      Gather info for GCP InterconnectAttachment                                        
+na_ontap_command                                              NetApp ONTAP Run any cli command, the username provided needs to have console logi...
+azure_rm_dnszone                                              Manage Azure DNS zones                                                            
+fortios_system_ipv6_neighbor_cache                            Configure IPv6 neighbor cache table in Fortinet's FortiOS and FortiGate           
+ce_netstream_global                                           Manages global parameters of NetStream on HUAWEI CloudEngine switches             
+vcenter_extension_facts                                       Gather facts vCenter extensions                                                   
+cp_mgmt_network_facts                                         Get network objects facts on Check Point over Web Services API                    
+azure_rm_gallery_info                                         Get Azure Shared Image Gallery info                                               
+azure_rm_mariadbdatabase_info                                 Get Azure MariaDB Database facts                                                  
+lxc_container                                                 Manage LXC Containers                                                             
+shell                                                         Execute shell commands on targets                                                 
+cloudfront_info                                               Obtain facts about an AWS CloudFront distribution                                 
+eos_eapi                                                      Manage and configure Arista EOS eAPI                                              
+win_file                                                      Creates, touches or removes files or directories                                  
+mongodb_parameter                                             Change an administrative parameter on a MongoDB server                            
+rax                                                           create / delete an instance in Rackspace Public Cloud                             
+include_vars                                                  Load variables from files, dynamically within a task                              
+cs_ip_address                                                 Manages public IP address associations on Apache CloudStack based clouds          
+ce_vrf_interface                                              Manages interface specific VPN configuration on HUAWEI CloudEngine switches       
+aws_codebuild                                                 Create or delete an AWS CodeBuild project                                         
+azure_rm_networkinterface_info                                Get network interface facts                                                       
+win_pester                                                    Run Pester tests on Windows hosts                                                 
+vmware_guest_disk_facts                                       Gather facts about disks of given virtual machine                                 
+mso_schema_template_externalepg                               Manage external EPGs in schema templates                                          
+meraki_static_route                                           Manage static routes in the Meraki cloud                                          
+fortios_report_theme                                          Report themes configuration in Fortinet's FortiOS and FortiGate                   
+gcp_iam_service_account                                       Creates a GCP ServiceAccount                                                      
+aci_tenant_span_src_group                                     Manage SPAN source groups (span:SrcGrp)                                           
+ce_info_center_log                                            Manages information center log configuration on HUAWEI CloudEngine switches       
+onyx_igmp_vlan                                                Configures IGMP Vlan parameters                                                   
+netscaler_ssl_certkey                                         Manage ssl certificate keys                                                       
+win_product_facts                                             Provides Windows product and license information                                  
+win_wakeonlan                                                 Send a magic Wake-on-LAN (WoL) broadcast packet                                   
+fortios_waf_signature                                         Hidden table for datasource in Fortinet's FortiOS and FortiGate                   
+fortios_switch_controller_security_policy_802_1X              Configure 802.1x MAC Authentication Bypass (MAB) policies in Fortinet's FortiOS an...
+cp_mgmt_access_layer_facts                                    Get access-layer objects facts on Check Point over Web Services API               
+na_ontap_cifs                                                 NetApp ONTAP Manage cifs-share                                                    
+azure_rm_servicebus                                           Manage Azure Service Bus                                                          
+ec2_lc                                                        Create or delete AWS Autoscaling Launch Configurations                            
+fortios_firewall_proxy_policy                                 Configure proxy policies in Fortinet's FortiOS and FortiGate                      
+fortios_switch_controller_network_monitor_settings            Configure network monitor settings in Fortinet's FortiOS and FortiGate            
+fortios_vpn_ipsec_phase2_interface                            Configure VPN autokey tunnel in Fortinet's FortiOS and FortiGate                  
+fortios_firewall_policy46                                     Configure IPv4 to IPv6 policies in Fortinet's FortiOS and FortiGate               
+proxysql_replication_hostgroups                               Manages replication hostgroups using the proxysql admin interface                 
+ce_command                                                    Run arbitrary command on HUAWEI CloudEngine devices                               
+aci_access_port_block_to_access_port                          Manage port blocks of Fabric interface policy leaf profile interface selectors (in...
+aws_direct_connect_gateway                                    Manage AWS Direct Connect Gateway                                                 
+fortios_log_fortianalyzer_override_setting                    Override FortiAnalyzer settings in Fortinet's FortiOS and FortiGate               
+cs_user                                                       Manages users on Apache CloudStack based clouds                                   
+grove                                                         Sends a notification to a grove.io channel                                        
+avi_trafficcloneprofile                                       Module for setup of TrafficCloneProfile Avi RESTful Object                        
+bigiq_utility_license_assignment                              Manage utility license assignment on BIG-IPs from a BIG-IQ                        
+gcp_sql_database_info                                         Gather info for GCP Database                                                      
+gcp_spanner_instance_info                                     Gather info for GCP Instance                                                      
+gcp_sql_instance                                              Creates a GCP Instance                                                            
+scaleway_security_group_facts                                 Gather facts about the Scaleway security groups available                         
+win_xml                                                       Manages XML file content on Windows hosts                                         
+manageiq_tags                                                 Management of resource tags in ManageIQ                                           
+cp_mgmt_vpn_community_star_facts                              Get vpn-community-star objects facts on Check Point over Web Services API         
+imc_rest                                                      Manage Cisco IMC hardware through its REST API                                    
+gcp_sql_database                                              Creates a GCP Database                                                            
+netconf_config                                                netconf device configuration                                                      
+swupd                                                         Manages updates and bundles in ClearLinux systems                                 
+cs_network_offering                                           Manages network offerings on Apache CloudStack based clouds                       
+aci_epg_to_contract                                           Bind EPGs to Contracts (fv:RsCons, fv:RsProv)                                     
+scaleway_organization_facts                                   Gather facts about the Scaleway organizations available                           
+fortios_system_vdom_property                                  Configure VDOM property in Fortinet's FortiOS and FortiGate                       
+fortios_system_gre_tunnel                                     Configure GRE tunnel in Fortinet's FortiOS and FortiGate                          
+azure_rm_publicipaddress_info                                 Get public IP facts                                                               
+gcp_compute_ssl_policy                                        Creates a GCP SslPolicy                                                           
+purefa_ra                                                     Enable or Disable Pure Storage FlashArray Remote Assist                           
+bigip_gtm_wide_ip                                             Manages F5 BIG-IP GTM wide ip                                                     
+zabbix_group_info                                             Gather information about Zabbix hostgroup                                         
+make                                                          Run targets in a Makefile                                                         
+bigip_configsync_action                                       Perform different actions related to config-sync                                  
+statusio_maintenance                                          Create maintenance windows for your status.io dashboard                           
+fortios_vpn_certificate_remote                                Remote certificate as a PEM file in Fortinet's FortiOS and FortiGate              
+purefb_s3user                                                 Create or delete FlashBlade Object Store account users                            
+vmware_datastore_info                                         Gather info about datastores available in given vCenter                           
+utm_ca_host_key_cert                                          create, update or destroy ca host_key_cert entry in Sophos UTM                    
+layman                                                        Manage Gentoo overlays                                                            
+vmware_dvswitch_lacp                                          Manage LACP configuration on a Distributed Switch                                 
+bigip_profile_server_ssl                                      Manages server SSL profiles on a BIG-IP                                           
+fortios_user_security_exempt_list                             Configure security exemption list in Fortinet's FortiOS and FortiGate             
+azure_rm_keyvault_info                                        Get Azure Key Vault facts                                                         
+ce_vlan                                                       Manages VLAN resources and attributes on Huawei CloudEngine switches              
+docker_swarm                                                  Manage Swarm cluster                                                              
+iptables                                                      Modify iptables rules                                                             
+aci_access_port_to_interface_policy_leaf_profile              Manage Fabric interface policy leaf profile interface selectors (infra:HPortS, inf...
+rax_mon_entity                                                Create or delete a Rackspace Cloud Monitoring entity                              
+scaleway_user_data                                            Scaleway user_data management module                                              
+vyos_command                                                  Run one or more commands on VyOS devices                                          
+online_user_info                                              Gather information about Online user                                              
+na_ontap_net_ifgrp                                            NetApp Ontap modify network interface group                                       
+fortios_router_prefix_list                                    Configure IPv4 prefix lists in Fortinet's FortiOS and FortiGate                   
+eos_bgp                                                       Configure global BGP protocol settings on Arista EOS                              
+fortios_user_group                                            Configure user groups in Fortinet's FortiOS and FortiGate                         
+fortios_webfilter_content_header                              Configure content types used by Web filter in Fortinet's FortiOS and FortiGate    
+netapp_e_snapshot_volume                                      NetApp E-Series manage snapshot volumes                                           
+github_webhook_info                                           Query information about GitHub webhooks                                           
+ce_rollback                                                   Set a checkpoint or rollback to a checkpoint on HUAWEI CloudEngine switches       
+bigip_virtual_server                                          Manage LTM virtual servers on a BIG-IP                                            
+patch                                                         Apply patch files using the GNU patch tool                                        
+aws_kms_info                                                  Gather information about AWS KMS keys                                             
+manageiq_user                                                 Management of users in ManageIQ                                                   
+ibm_sa_host                                                   Adds hosts to or removes them from IBM Spectrum Accelerate Family storage systems 
+cs_configuration                                              Manages configuration on Apache CloudStack based clouds                           
+win_group_membership                                          Manage Windows local group membership                                             
+beadm                                                         Manage ZFS boot environments on FreeBSD/Solaris/illumos systems                   
+ce_vrf                                                        Manages VPN instance on HUAWEI CloudEngine switches                               
+open_iscsi                                                    Manage iSCSI targets with Open-iSCSI                                              
+aci_firmware_source                                           Manage firmware image sources (firmware:OSource)                                  
+vmware_host_ipv6                                              Enables/Disables IPv6 support for an ESXi host system                             
+fortios_system_autoupdate_schedule                            Configure update schedule in Fortinet's FortiOS and FortiGate                     
+ce_startup                                                    Manages a system startup information on HUAWEI CloudEngine switches               
+fortios_webfilter_ips_urlfilter_cache_setting                 Configure IPS URL filter cache settings in Fortinet's FortiOS and FortiGate       
+ce_reboot                                                     Reboot a HUAWEI CloudEngine switches                                              
+fail                                                          Fail with custom message                                                          
+ios_vlans                                                     Manage VLANs on Cisco IOS devices                                                 
+nso_verify                                                    Verifies Cisco NSO configuration                                                  
+fortios_system_ipv6_tunnel                                    Configure IPv6/IPv4 in IPv6 tunnel in Fortinet's FortiOS and FortiGate            
+bigip_profile_client_ssl                                      Manages client SSL profiles on a BIG-IP                                           
+azure_rm_virtualmachine                                       Manage Azure virtual machines                                                     
+aci_tenant_action_rule_profile                                Manage action rule profiles (rtctrl:AttrP)                                        
+na_ontap_aggregate                                            NetApp ONTAP manage aggregates                                                    
+azure_rm_cdnprofile_info                                      Get Azure CDN profile facts                                                       
+cp_mgmt_threat_rule_facts                                     Get threat-rule objects facts on Check Point over Web Services API                
+fortios_user_fsso                                             Configure Fortinet Single Sign On (FSSO) agents in Fortinet's FortiOS and FortiGat...
+fortios_log_fortianalyzer_setting                             Global FortiAnalyzer settings in Fortinet's FortiOS and FortiGate                 
+pn_fabric_local                                               CLI command to modify fabric-local                                                
+ibm_sa_pool                                                   Handles pools on IBM Spectrum Accelerate Family storage systems                   
+irc                                                           Send a message to an IRC channel                                                  
+os_project_access                                             Manage OpenStack compute flavors access                                           
+bigip_dns_nameserver                                          Manage LTM DNS nameservers on a BIG-IP                                            
+ovirt_template_info                                           Retrieve information about one or more oVirt/RHV templates                        
+import_role                                                   Import a role into a play                                                         
+bigip_firewall_rule_list                                      Manage AFM security firewall policies on a BIG-IP                                 
+mso_schema_site_vrf_region                                    Manage site-local VRF regions in schema template                                  
+gcp_compute_health_check_info                                 Gather info for GCP HealthCheck                                                   
+vmware_content_library_info                                   Gather information about VMware Content Library                                   
+ce_evpn_bd_vni                                                Manages EVPN VXLAN Network Identifier (VNI) on HUAWEI CloudEngine switches        
+azure_rm_publicipaddress                                      Manage Azure Public IP Addresses                                                  
+bigip_ss

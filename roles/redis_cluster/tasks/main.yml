@@ -6,7 +6,7 @@
     - make
     - jemalloc-devel
     - systemd-devel
-  when: inventory_hostname == "server1"
+  when: inventory_hostname == "redis-1"
 
 - name: create group {{ group }}
   group:
@@ -21,65 +21,73 @@
     system: yes
     shell: /sbin/nologin
     create_home: yes
-    home: "{{ redis_data_dir }}"
 
-- name: Create Redis data and log directories for each instance
+- name: Create Redis data and log directories 
   file:
-    path: "{{ redis_data_dir }}/{{ item.0.port }}/{{ item.1 }}"
+    path: "{{ item }}"
     state: directory
-    group: "{{ group }}"
-    owner: "{{ user }}"
-    mode: '0755'
-  loop: "{{ redis_instances | product(['data', 'log']) | list }}"
-  loop_control:
-    loop_var: item
+  loop: 
+    - "{{ redis_data_dir }}"
+    - "{{ redis_log_dir }}"
 
-- name: Download Redis source from URL
+- name: Create {{ redis_data_dir }} directories for each instance
+  file:
+    path: "{{ redis_data_dir }}redis-{{ item }}"
+    state: directory
+  loop: "{{ range(1, redis_instances_per_host + 1) | list }}"
+
+- name: Create {{ redis_log_dir }} directories for each instance
+  file:
+    path: "{{ redis_log_dir }}redis-{{ item }}"
+    state: directory
+  loop: "{{ range(1, redis_instances_per_host + 1) | list }}"
+
+- name: Download Redis source from URL (only on redis-1)
   get_url:
     url: "http://download.redis.io/releases/redis-{{ redis_version }}.tar.gz"
-    dest: "{{ redis_base_dir }}/src/redis-{{ redis_version }}.tar.gz"
+    dest: "{{ redis_src_dir }}redis-{{ redis_version }}.tar.gz"
     mode: '0644'
   register: download_redis
   ignore_errors: yes
-  when: inventory_hostname == "server1"
+  when: inventory_hostname == "redis-1"
 
-- name: Use local redis_file if download failed
+- name: Ensure Redis source is available (either downloaded or local)
   unarchive:
-    src: "{{ (download_redis.failed | default(false)) | ternary(redis_file, redis_base_dir + '/src/redis-' + redis_version + '.tar.gz') }}"
-    dest: "{{ redis_base_dir }}/src"
-    remote_src: "{{ download_redis.failed | default(false) | ternary('no', 'yes') }}"
-    creates: "{{ redis_base_dir }}/src/redis-{{ redis_version }}"
-  when: inventory_hostname == "server1"
-
+    src: "{{ redis_src_dir }}redis-{{ redis_version }}.tar.gz"
+    dest: "{{ redis_src_dir }}"
+    remote_src: "yes"
+    creates: "{{ redis_src_dir }}redis-{{ redis_version }}"
+  when:
+    - inventory_hostname == "redis-1"
+    - (download_redis is not defined) or (not download_redis.failed)
 
 - name: Compile  install redis-{{ redis_version }}  on first node
   shell:
-    chdir: "{{ redis_base_dir }}/src/redis-{{ redis_version }}"
-    cmd: "make -j {{ (ansible_processor_vcpus / 2) | int }}  USE_SYSTEMD=yes PREFIX={{ redis_base_dir }}/redis install"
-    creates: "{{ redis_base_dir }}/redis"
-  when: inventory_hostname == "server1" 
+    chdir: "{{ redis_src_dir }}redis-{{ redis_version }}"
+    cmd: "make -j {{ (ansible_processor_vcpus / 2) | int }}  USE_SYSTEMD=yes PREFIX={{ redis_base_dir }} install"
+    creates: "{{ redis_base_dir }}"
+  when: inventory_hostname == "redis-1" 
 
-# 将Redis二进制文件拷贝到其他机器
-- name: Copy Redis installation to other nodes
+- name: Copy Redis installation to other nodes from redis-1
   synchronize:
-    src: "{{ redis_base_dir }}/redis/"
-    dest: "{{ redis_base_dir }}/redis/"
+    src: "{{ redis_base_dir }}"
+    dest: "{{ redis_base_dir }}"
     recursive: yes
-  delegate_to: server1
-  when: inventory_hostname != "server1"
+  delegate_to: redis-1
+  when: inventory_hostname != "redis-1"
 
 - name: Create an etc directory for storing redis.conf
   file:
-    path: "{{ redis_base_dir }}/redis/etc/{{ item.port }}"
+    path: "{{ redis_base_dir }}etc/redis-{{ item }}"
     state: directory
     mode: '0755'
-  loop: "{{ redis_instances }}"
+  loop: "{{ range(1, redis_instances_per_host + 1) | list }}"
 
 - name: Copy the compiled redis.conf file to etc
   template:
     src: redis.conf.j2
-    dest: "{{ redis_base_dir }}/redis/etc/{{ item.port }}/redis.conf"
-  loop: "{{ redis_instances }}"
+    dest: "{{ redis_base_dir }}etc/redis-{{ item }}/redis.conf"
+  loop: "{{ range(1, redis_instances_per_host + 1) | list }}"
   tags: redis_conf
   notify:
     - restart-redis
@@ -92,15 +100,15 @@
     mode: '0755'
     recurse: yes
   loop:
-    - "{{ redis_base_dir }}/redis"
+    - "{{ redis_base_dir }}"
     - "{{ redis_data_dir }}"
-
+    - "{{ redis_log_dir }}"
 
 - name: copy redis.service
   template:
     src: redis.service.j2
-    dest: /lib/systemd/system/redis{{ item.port }}.service
-  loop: "{{ redis_instances }}"
+    dest: /lib/systemd/system/redis-server-{{ item }}.service
+  loop: "{{ range(1, redis_instances_per_host + 1) | list }}"
   notify:
     - daemon-reload
 
@@ -158,33 +166,34 @@
 
 - name: Ensure Redis service is enabled and started
   service:
-    name: "redis{{ item.port }}"
+    name: "redis-server-{{ item }}"
     state: started
     enabled: yes
-  loop: "{{ redis_instances }}"
+  loop: "{{ range(1, redis_instances_per_host + 1) | list }}"
+
+- name: Gather Redis Hosts
+  set_fact:
+    redis_hosts: "{{ groups['redis_hosts'] | map('extract', hostvars, ['ansible_host']) | list }}"
 
 - name: Display Redis cluster initialization command
   debug:
-    msg: "{{ redis_base_dir }}/redis/bin/redis-cli --cluster create {{ redis_instances | map(attribute='host') | zip(redis_instances | map(attribute='port')) | map('join', ':') | join(' ') }} --cluster-replicas 1 -a {{ redis_password }} --cluster-yes"
+    msg: 
+      - "i will use this command to init the cluster: "
+      -  "{{ redis_base_dir }}bin/redis-cli --cluster create {{ redis_hosts | product(range(redis_base_port, redis_base_port + redis_instances_per_host)) | map('join', ':') | join(' ') }} --cluster-replicas 1 -a {{ redis_password }} --cluster-yes delegate_to: {{ redis_hosts[0] }}"
   run_once: true
 
 - name: Confirm Initialization
   pause:
     prompt: "Redis cluster configuration complete. Do you want to initialize the cluster now? (y/n)"
   register: init_confirmation
-  run_once: true
 
 - name: Initialize Redis Cluster
-  command: "{{ redis_base_dir }}/redis/bin/redis-cli --cluster create {{ redis_instances | map(attribute='host') | zip(redis_instances | map(attribute='port')) | map('join', ':') | join(' ') }} --cluster-replicas 1 -a {{ redis_password }} --cluster-yes"
+  command: "{{ redis_base_dir }}bin/redis-cli --cluster create {{ redis_hosts | product(range(redis_base_port, redis_base_port + redis_instances_per_host)) | map('join', ':') | join(' ') }} --cluster-replicas 1 -a {{ redis_password }} --cluster-yes delegate_to: {{ redis_hosts[0] }}"
   when: init_confirmation.user_input == 'y' or init_confirmation.user_input == 'yes'
   run_once: true
 
-- name: Gather Redis Hosts
-  set_fact:
-    redis_hosts: "{{ redis_instances | map(attribute='host') | unique }}"
-
 - name: Check Redis cluster status
-  command: "{{ redis_base_dir }}/redis/bin/redis-cli --cluster check {{ redis_instances[0]['host'] }}:{{ redis_instances[0]['port'] }} -a {{ redis_password }}"
+  command: "{{ redis_base_dir }}bin/redis-cli --cluster check {{ redis_hosts[0] }}:{{ redis_base_port }} -a {{ redis_password }}"
   register: cluster_check_output
   changed_when: false
   run_once: true

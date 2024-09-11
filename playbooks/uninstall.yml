@@ -2,6 +2,7 @@
 - name: Uninstall Redis
   hosts: all
   become: yes
+  #strategy: free
   vars_files:
     - ../roles/redis_cluster/vars/main.yml
   tasks:
@@ -9,42 +10,34 @@
       pause:
         prompt: "Are you sure you want to uninstall Redis on all servers? (y/n)"
       register: uninstall_confirmation
-      delegate_to: localhost
-
-    - name: Set uninstall confirmation as a fact on all hosts
-      set_fact:
-        uninstall_confirmed: "{{ uninstall_confirmation.user_input }}"
-      delegate_to: localhost
+      delegate_to: localhost 
       run_once: true
 
-    - name: Fail if uninstallation is not confirmed
+    - name: Start uninstall
       fail:
-        msg: "Uninstallation aborted."
-      when: uninstall_confirmed not in ['y', 'Y', 'yes', 'Yes']
+        msg: "Type y', 'Y', 'yes', 'Yes' to uninstall and the rest to exit"
+      when: uninstall_confirmation.user_input not in ['y', 'Y', 'yes', 'Yes']
 
     - name: Stop and disable Redis services
       service:
-        name: "redis{{ item.port }}"
+        name: "redis-server-{{ item }}"
         state: stopped
         enabled: no
-      loop: "{{ redis_instances }}"
+      loop: "{{ range(1, redis_instances_per_host + 1) | list }}"
       ignore_errors: yes
 
     - name: Remove Redis systemd unit files
       file:
-        path: "/lib/systemd/system/redis{{ item.port }}.service"
+        path: "/lib/systemd/system/redis-{{ item }}.service"
         state: absent
-      loop: "{{ redis_instances }}"
+      loop: "{{ range(1, redis_instances_per_host + 1) | list }}"
       ignore_errors: yes
 
     - name: Remove Redis installation directories
       file:
         path: "{{ item }}"
         state: absent
-      loop:
-        - "{{ redis_base_dir }}/redis"
-        - "{{ redis_base_dir }}/src/redis-{{ redis_version }}"
-        - "{{ redis_data_dir }}"
+      loop: "{{ redis_directories }}"
       ignore_errors: yes
 
     - name: Remove Redis user and group
