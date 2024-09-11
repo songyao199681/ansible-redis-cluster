@@ -2,10 +2,7 @@
   systemd:
     name: redis-server-{{ item }}
     state: restarted
+    enabled: true
+    daemon_reload: yes
   loop: "{{ range(1, redis_instances_per_host + 1) | list }}"
   listen: restart-redis
-
-- name: daemon-reload
-  systemd:
-    daemon_reload: yes
-  listen: daemon-reload

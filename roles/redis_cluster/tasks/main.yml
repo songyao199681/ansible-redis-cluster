@@ -20,7 +20,6 @@
     group: "{{ group }}"
     system: yes
     shell: /sbin/nologin
-    create_home: yes
 
 - name: Create Redis data and log directories 
   file:
@@ -110,7 +109,7 @@
     dest: /lib/systemd/system/redis-server-{{ item }}.service
   loop: "{{ range(1, redis_instances_per_host + 1) | list }}"
   notify:
-    - daemon-reload
+    - restart-redis
 
 - name: redis PATH variable
   copy:
@@ -163,13 +162,6 @@
     path: /etc/rc.d/rc.local
     mode: '0755'
     state: file
-
-- name: Ensure Redis service is enabled and started
-  service:
-    name: "redis-server-{{ item }}"
-    state: started
-    enabled: yes
-  loop: "{{ range(1, redis_instances_per_host + 1) | list }}"
 
 - name: Gather Redis Hosts
   set_fact:
